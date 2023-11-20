@@ -19,6 +19,9 @@ class RelationalAlgebra:
 
         return fields_indexes
 
+    def _Load(self):
+        data_loader.get(self._FileName())
+        
     def Scan(self):
         return data_loader.get_entries(self._FileName())
 
@@ -47,3 +50,9 @@ class RelationalAlgebra:
     def Sort(self, input, field, DES=False):
         schema = self._Schema()
         return sorted(input, key=lambda x: x[schema.index(field)], reverse=DES)
+    
+    def SortByIndex(self, input, idx, DES=False):
+        return sorted(input, key=lambda x: x[idx], reverse=DES)
+    
+
+    def Union(self, )
